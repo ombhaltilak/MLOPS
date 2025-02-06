@@ -1,28 +1,59 @@
+# base:
+#  project:infinity_mlops
+#  random_state:20
+#  target_col:charges
+
+# data_source:
+#  raw_dataset_csv:data/raw/insurance.csv
+
+# load_data:
+#  clean_data:data/processed/insurance_aiss.csv
+
+# split_data:
+#  train_path:data/processed/train_aiss.csv
+#  test_path:data/processed/test_aiss.csv
+#  test_size:0.2
+
+# estimator:
+#  ElasticNet:
+#   params:
+#     alpha:.9
+#     li_ratio:0.6
+#   # we can change here model by using official web of model
+
+# model_path:models/models.joblib
+
+# reports:
+#  reports:reports/params.json
+#  score:reports/scores.json
+
+
+
+
 base:
- project:infinity_mlops
- random_state:20
- target_col:charges
+  project: aissm_mlops
+  random_state: 20
+  target_col: charges
 
 data_source:
- raw_dataset_csv:data/raw/insurance.csv
+  raw_dataset_csv: data/raw/insurance.csv
 
 load_data:
- clean_data:data/processed/insurance_aiss.csv
+  clean_data: data/processed/insurance_aiss.csv
 
 split_data:
- train_path:data/processed/train_aiss.csv
- test_path:data/processed/test_aiss.csv
- test_size:0.2
+  train_path: data/processed/train_aissm.csv
+  test_path: data/processed/test_aissm.csv
+  test_size: 0.2
 
-estimator:
- ElasticNet:
-  params:
-    alpha:.9
-    li_ratio:0.6
-  # we can change here model by using official web of model
+estimators:
+  ElasticNet:
+    params:
+      alpha: 0.9
+      l1_ratio: 0.6
 
-model_path=models/models.joblib
+model_path: models/models.joblib
 
 reports:
- reports:reports/params.json
- score:reports/scores.json
+  params: reports/params.json
+  score: reports/scores.json
